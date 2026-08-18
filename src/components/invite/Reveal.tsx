@@ -40,7 +40,7 @@ export function Rule({ className = "" }: { className?: string }) {
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <span className="text-[0.62rem] tracking-editorial uppercase text-primary/80">
+    <span className="text-emboss-soft text-[0.62rem] tracking-editorial uppercase text-primary">
       {children}
     </span>
   );

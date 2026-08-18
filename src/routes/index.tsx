@@ -104,7 +104,7 @@ function Index() {
             <SectionLabel>O evento</SectionLabel>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-8 font-serif text-3xl font-light leading-tight text-foreground md:text-5xl">
+            <h2 className="text-emboss-soft mt-8 font-serif text-3xl font-light leading-tight text-foreground md:text-5xl">
               {event.headline}
             </h2>
           </Reveal>
@@ -222,7 +222,7 @@ function Index() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2 md:gap-20">
           <Reveal>
             <Eyebrow>Onde vamos celebrar</Eyebrow>
-            <h3 className="mt-6 font-serif text-3xl font-light text-foreground md:text-5xl">
+            <h3 className="text-emboss-soft mt-6 font-serif text-3xl font-light text-foreground md:text-5xl">
               {event.venue}
             </h3>
             <p className="mt-6 text-[0.62rem] uppercase tracking-editorial text-foreground/55">
@@ -268,21 +268,13 @@ function Index() {
               {event.giftsText}
             </p>
             <a
-              href={event.giftsUrl || event.mapsUrl}
+              href={event.giftsUrl}
               target="_blank"
               rel="noreferrer"
-              aria-disabled={!event.giftsUrl}
-              onClick={(e) => {
-                if (!event.giftsUrl) e.preventDefault();
-              }}
-              className={`mt-10 inline-flex items-center gap-3 border border-border px-7 py-4 text-[0.58rem] uppercase tracking-editorial transition-colors duration-500 ${
-                event.giftsUrl
-                  ? "text-foreground/80 hover:border-primary/60 hover:text-foreground"
-                  : "cursor-not-allowed text-foreground/35"
-              } min-h-[44px]`}
+              className="mt-10 inline-flex min-h-[44px] items-center gap-3 border border-primary/40 px-7 py-4 text-[0.58rem] uppercase tracking-editorial text-foreground/85 transition-colors duration-500 hover:bg-primary/10 hover:text-foreground"
             >
               <Gift className="size-3.5" strokeWidth={1.2} />
-              Consultar lista
+              Ver lista de presentes
             </a>
           </Reveal>
         </div>
@@ -302,7 +294,7 @@ function Index() {
         <div className="absolute inset-0 z-0 bg-[#05070A]/75" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center gap-6 px-6 text-center">
           <Reveal>
-            <p className="font-script text-4xl text-foreground md:text-6xl">{event.couple}</p>
+            <p className="text-emboss font-script text-4xl text-foreground md:text-6xl">{event.couple}</p>
           </Reveal>
           <Reveal delay={0.15}>
             <span aria-hidden className="mx-auto block h-px w-16 bg-primary/50" />
