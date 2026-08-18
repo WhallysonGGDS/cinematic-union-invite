@@ -1,16 +1,17 @@
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 
 export function Intro({ onDone }: { onDone: () => void }) {
+  const reduce = useReducedMotion();
   const [show, setShow] = useState(true);
 
   useEffect(() => {
     const t = setTimeout(() => {
       setShow(false);
       onDone();
-    }, 2600);
+    }, reduce ? 300 : 2200);
     return () => clearTimeout(t);
-  }, [onDone]);
+  }, [onDone, reduce]);
 
   return (
     <AnimatePresence>
