@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
 export function Reveal({
@@ -12,6 +12,10 @@ export function Reveal({
   y?: number;
   className?: string;
 }) {
+  const reduce = useReducedMotion();
+
+  if (reduce) return <div className={className}>{children}</div>;
+
   return (
     <motion.div
       className={className}

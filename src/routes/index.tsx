@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { MapPin, Gift, MessageCircle } from "lucide-react";
-import { event, photos } from "@/content/event";
+import { MapPin, Gift, Navigation } from "lucide-react";
+import { event, photos, shareImage } from "@/content/event";
+import { MapEmbed } from "@/components/invite/MapEmbed";
 import { Nav } from "@/components/invite/Nav";
 import { Intro } from "@/components/invite/Intro";
 import { Hero } from "@/components/invite/Hero";
@@ -16,15 +17,30 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Convite digital do Chá de Panela de Whallyson & Emylli — 29 de outubro de 2026, 19h30, Espaço Mix Eventos, Goiânia.",
+          "Convite digital do Chá de Panela de Whallyson & Emylli — 29 de outubro de 2026, 19h30, Espaço Mix Eventos, Goiânia - GO.",
       },
-      { property: "og:title", content: "Chá de Panela — Whallyson & Emylli" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      {
+        property: "og:title",
+        content: "Chá de Panela — Whallyson & Emylli",
+      },
       {
         property: "og:description",
         content:
           "29 de outubro de 2026 · 19h30 às 21h · Espaço Mix Eventos, Goiânia - GO. Venha celebrar com a gente.",
       },
+      { property: "og:image", content: shareImage },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Chá de Panela — Whallyson & Emylli" },
+      {
+        name: "twitter:description",
+        content:
+          "29 de outubro de 2026 · 19h30 às 21h · Espaço Mix Eventos, Goiânia - GO.",
+      },
+      { name: "twitter:image", content: shareImage },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Index,
 });
@@ -131,34 +147,30 @@ function Index() {
         </div>
       </section>
 
-      {/* NOSSA HISTÓRIA */}
-      <section id="historia" className="px-6 py-24 md:py-36">
+      {/* CONVITE */}
+      <section id="convite" className="px-6 py-24 md:py-36">
         <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2 md:gap-20">
           <Reveal>
-            <div className="relative overflow-hidden grain">
+            <div className="grain relative overflow-hidden">
               <img
                 src={photos.close}
                 alt="Whallyson e Emylli sorrindo de rosto colado"
+                width={1200}
+                height={1500}
                 loading="lazy"
+                decoding="async"
                 className="aspect-[4/5] w-full object-cover"
               />
               <div className="absolute inset-0 bg-[#05070A]/20" />
             </div>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="border-l border-border/70 pl-8 md:pl-12">
-              <Eyebrow>Nossa história</Eyebrow>
-              <h3 className="mt-6 font-serif text-3xl font-light leading-tight text-foreground md:text-4xl">
-                Dois caminhos que viraram um só.
-              </h3>
-              <div className="mt-6 space-y-4 text-sm leading-relaxed text-foreground/55">
-                {event.story.length > 0 ? (
-                  event.story.map((p) => <p key={p}>{p}</p>)
-                ) : (
-                  <p className="italic text-foreground/35">
-                    Em breve, o casal compartilha aqui o começo dessa história.
-                  </p>
-                )}
+            <div className="border-l border-border/70 pl-6 md:pl-12">
+              <Eyebrow>Convite</Eyebrow>
+              <div className="mt-8 space-y-5 font-serif text-lg font-light leading-relaxed text-foreground/75 md:text-xl">
+                {event.story.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
               </div>
             </div>
           </Reveal>
@@ -185,7 +197,10 @@ function Index() {
               <img
                 src={photos.lake}
                 alt="O casal contemplando o lago ao entardecer"
+                width={1600}
+                height={1000}
                 loading="lazy"
+                decoding="async"
                 className="aspect-[16/10] w-full object-cover"
               />
             </div>
@@ -220,29 +235,33 @@ function Index() {
               href={event.mapsUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-10 inline-flex items-center gap-3 border border-border px-7 py-4 text-[0.58rem] uppercase tracking-editorial text-foreground/80 transition-colors duration-500 hover:border-primary/60 hover:text-foreground"
+              className="mt-10 inline-flex min-h-[44px] items-center gap-3 border border-border px-7 py-4 text-[0.58rem] uppercase tracking-editorial text-foreground/80 transition-colors duration-500 hover:border-primary/60 hover:text-foreground"
             >
               <MapPin className="size-3.5" strokeWidth={1.2} />
-              Abrir localização
+              Abrir no Google Maps
+            </a>
+            <a
+              href={event.mapsDirectionsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-flex min-h-[44px] items-center gap-3 border border-primary/40 px-7 py-4 text-[0.58rem] uppercase tracking-editorial text-foreground/85 transition-colors duration-500 hover:bg-primary/10 sm:ml-4 sm:mt-10"
+            >
+              <Navigation className="size-3.5" strokeWidth={1.2} />
+              Como chegar
             </a>
           </Reveal>
           <Reveal delay={0.15}>
-            <div className="relative overflow-hidden grain">
-              <img
-                src={photos.skyline}
-                alt="Whallyson e Emylli de mãos dadas à beira do lago"
-                loading="lazy"
-                className="aspect-[4/5] w-full object-cover md:aspect-square"
-              />
-              <div className="absolute inset-0 bg-[#071321]/30 mix-blend-multiply" />
-            </div>
+            <MapEmbed
+              src={event.mapsEmbedUrl}
+              title={`Mapa — ${event.venue}, ${event.addressLine1}`}
+            />
           </Reveal>
         </div>
       </section>
 
-      {/* PRESENTES + RSVP */}
+      {/* PRESENTES */}
       <section id="presentes" className="px-6 py-24 md:py-36">
-        <div className="mx-auto flex max-w-3xl flex-col items-center gap-20 text-center">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <Reveal className="flex flex-col items-center">
             <Eyebrow>Lista de presentes</Eyebrow>
             <p className="mt-6 font-serif text-2xl font-light leading-snug text-foreground md:text-3xl">
@@ -260,39 +279,10 @@ function Index() {
                 event.giftsUrl
                   ? "text-foreground/80 hover:border-primary/60 hover:text-foreground"
                   : "cursor-not-allowed text-foreground/35"
-              }`}
+              } min-h-[44px]`}
             >
               <Gift className="size-3.5" strokeWidth={1.2} />
               Consultar lista
-            </a>
-          </Reveal>
-
-          <Reveal delay={0.1} className="flex w-full flex-col items-center border-t border-border/70 pt-20">
-            <Eyebrow>Confirmação</Eyebrow>
-            <p className="mt-6 font-serif text-3xl font-light leading-snug text-foreground md:text-4xl">
-              Você vem celebrar com a gente?
-            </p>
-            <a
-              href={
-                event.rsvpWhatsapp
-                  ? `https://wa.me/${event.rsvpWhatsapp}?text=${encodeURIComponent(
-                      "Olá! Confirmo presença no Chá de Panela de Whallyson & Emylli.",
-                    )}`
-                  : "#presentes"
-              }
-              target={event.rsvpWhatsapp ? "_blank" : undefined}
-              rel="noreferrer"
-              onClick={(e) => {
-                if (!event.rsvpWhatsapp) e.preventDefault();
-              }}
-              className={`mt-10 inline-flex items-center gap-3 border px-9 py-4 text-[0.58rem] uppercase tracking-editorial transition-colors duration-500 ${
-                event.rsvpWhatsapp
-                  ? "border-primary/50 text-foreground hover:bg-primary/10"
-                  : "cursor-not-allowed border-border text-foreground/35"
-              }`}
-            >
-              <MessageCircle className="size-3.5" strokeWidth={1.2} />
-              Confirmar presença
             </a>
           </Reveal>
         </div>
@@ -303,11 +293,14 @@ function Index() {
         <img
           src={photos.forehead}
           alt="Whallyson beijando a testa de Emylli"
+          width={1600}
+          height={2000}
           loading="lazy"
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          decoding="async"
+          className="absolute inset-0 z-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 -z-10 bg-[#05070A]/75" />
-        <div className="flex h-full flex-col items-center justify-center gap-6 px-6 text-center">
+        <div className="absolute inset-0 z-0 bg-[#05070A]/75" />
+        <div className="relative z-10 flex h-full flex-col items-center justify-center gap-6 px-6 text-center">
           <Reveal>
             <p className="font-script text-4xl text-foreground md:text-6xl">{event.couple}</p>
           </Reveal>

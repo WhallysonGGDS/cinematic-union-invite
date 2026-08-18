@@ -34,7 +34,7 @@ export function Nav({ visible }: { visible: boolean }) {
         solid ? "bg-background/70 backdrop-blur-md" : ""
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 pt-[max(1rem,env(safe-area-inset-top))] md:px-10">
         <button
           onClick={() => scrollToId("inicio")}
           className="font-script text-lg text-foreground/85 transition-opacity hover:opacity-70 md:text-xl"
@@ -58,7 +58,7 @@ export function Nav({ visible }: { visible: boolean }) {
         <button
           aria-label="Abrir menu"
           onClick={() => setOpen(true)}
-          className="text-foreground/70 md:hidden"
+          className="-mr-2 grid size-11 place-items-center text-foreground/70 md:hidden"
         >
           <Menu className="size-5" strokeWidth={1} />
         </button>
@@ -73,8 +73,12 @@ export function Nav({ visible }: { visible: boolean }) {
             transition={{ duration: 0.5 }}
             className="fixed inset-0 z-50 bg-background/97 backdrop-blur-xl md:hidden"
           >
-            <div className="flex items-center justify-end px-6 py-5">
-              <button aria-label="Fechar menu" onClick={() => setOpen(false)}>
+            <div className="flex items-center justify-end px-6 py-4 pt-[max(1rem,env(safe-area-inset-top))]">
+              <button
+                aria-label="Fechar menu"
+                onClick={() => setOpen(false)}
+                className="-mr-2 grid size-11 place-items-center"
+              >
                 <X className="size-5 text-foreground/70" strokeWidth={1} />
               </button>
             </div>
@@ -89,7 +93,7 @@ export function Nav({ visible }: { visible: boolean }) {
                     setOpen(false);
                     setTimeout(() => scrollToId(item.id), 260);
                   }}
-                  className="font-serif text-2xl tracking-wide text-foreground/85"
+                  className="min-h-[44px] px-6 font-serif text-2xl tracking-wide text-foreground/85"
                 >
                   {item.label}
                 </motion.button>
