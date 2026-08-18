@@ -37,7 +37,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.4 }}
-          className="text-[0.55rem] uppercase tracking-editorial text-primary/80 md:text-[0.65rem]"
+          className="text-emboss text-[0.6rem] uppercase tracking-editorial text-primary md:text-[0.7rem]"
         >
           Convite
         </motion.p>
@@ -46,7 +46,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-4 font-serif text-4xl font-light leading-[1.05] text-foreground sm:text-5xl md:text-7xl"
+          className="text-emboss mt-4 font-serif text-4xl font-light leading-[1.05] text-foreground sm:text-5xl md:text-7xl"
         >
           {event.type}
         </motion.p>
@@ -55,7 +55,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 22, filter: "blur(12px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 1.6, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 font-script text-4xl leading-[1.15] text-foreground sm:text-5xl md:text-7xl"
+          className="text-emboss mt-6 font-script text-4xl leading-[1.15] text-foreground sm:text-5xl md:text-7xl"
         >
           {event.couple}
         </motion.h1>
@@ -64,25 +64,25 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1.3 }}
-          className="mt-9 flex w-full max-w-md flex-col items-center gap-5 border-y border-primary/25 bg-[#05070A]/25 px-4 py-7 backdrop-blur-[2px]"
+          className="mt-9 flex w-full max-w-md flex-col items-center gap-5 border-y border-primary/50 bg-background/55 px-4 py-7 backdrop-blur-[3px]"
         >
           <div className="flex items-center justify-center gap-4 sm:gap-6">
-            <span className="text-[0.58rem] uppercase tracking-editorial text-foreground/70 sm:text-[0.68rem]">
+            <span className="text-emboss-soft text-[0.58rem] uppercase tracking-editorial text-foreground/90 sm:text-[0.68rem]">
               {event.weekday}
             </span>
-            <span aria-hidden className="h-8 w-px bg-primary/40" />
-            <span className="font-serif text-5xl font-light leading-none text-foreground sm:text-6xl">
+            <span aria-hidden className="h-8 w-px bg-primary/60" />
+            <span className="text-emboss font-serif text-5xl font-light leading-none text-foreground sm:text-6xl">
               {event.dayNumber}
             </span>
-            <span aria-hidden className="h-8 w-px bg-primary/40" />
-            <span className="text-[0.58rem] uppercase tracking-editorial text-foreground/70 sm:text-[0.68rem]">
+            <span aria-hidden className="h-8 w-px bg-primary/60" />
+            <span className="text-emboss-soft text-[0.58rem] uppercase tracking-editorial text-foreground/90 sm:text-[0.68rem]">
               {event.monthYear}
             </span>
           </div>
-          <p className="font-serif text-xl font-light text-primary/90 sm:text-2xl">
+          <p className="text-emboss font-serif text-2xl font-light text-primary sm:text-3xl">
             {event.time}
           </p>
-          <p className="text-[0.55rem] uppercase tracking-editorial text-foreground/55 sm:text-[0.62rem]">
+          <p className="text-emboss-soft text-[0.55rem] uppercase tracking-editorial text-foreground/85 sm:text-[0.62rem]">
             {event.venue} · Goiânia - GO
           </p>
         </motion.div>
@@ -92,14 +92,14 @@ export function Hero() {
         style={{ opacity: fade }}
         className="pointer-events-none absolute inset-x-0 bottom-[max(1.5rem,env(safe-area-inset-bottom))] z-10 flex flex-col items-center gap-3"
       >
-        <span className="text-[0.5rem] uppercase tracking-editorial text-foreground/40">
+        <span className="text-emboss-soft text-[0.52rem] uppercase tracking-editorial text-foreground/80">
           Role para ver mais
         </span>
         <motion.span
           aria-hidden
           animate={reduce ? { scaleY: 1 } : { scaleY: [0.2, 1, 0.2], originY: 0 }}
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-          className="h-10 w-px bg-foreground/35"
+          className="h-10 w-px bg-foreground/60"
         />
       </motion.div>
     </section>
