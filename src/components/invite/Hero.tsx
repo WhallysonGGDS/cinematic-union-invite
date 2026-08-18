@@ -12,7 +12,7 @@ export function Hero() {
       id="inicio"
       className="grain vignette relative min-h-[100svh] w-full overflow-hidden"
     >
-      <motion.div style={{ y }} className="absolute inset-0 -z-10">
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
         <motion.img
           src={photos.hero}
           alt="Whallyson e Emylli de rosto colado ao ar livre"

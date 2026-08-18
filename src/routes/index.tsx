@@ -297,10 +297,10 @@ function Index() {
           height={2000}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          className="absolute inset-0 z-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 -z-10 bg-[#05070A]/75" />
-        <div className="flex h-full flex-col items-center justify-center gap-6 px-6 text-center">
+        <div className="absolute inset-0 z-0 bg-[#05070A]/75" />
+        <div className="relative z-10 flex h-full flex-col items-center justify-center gap-6 px-6 text-center">
           <Reveal>
             <p className="font-script text-4xl text-foreground md:text-6xl">{event.couple}</p>
           </Reveal>
