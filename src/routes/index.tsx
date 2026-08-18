@@ -259,7 +259,7 @@ function Index() {
         </div>
       </section>
 
-      {/* PRESENTES + RSVP */}
+      {/* PRESENTES */}
       <section id="presentes" className="px-6 py-24 md:py-36">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
           <Reveal className="flex flex-col items-center">
@@ -279,13 +279,12 @@ function Index() {
                 event.giftsUrl
                   ? "text-foreground/80 hover:border-primary/60 hover:text-foreground"
                   : "cursor-not-allowed text-foreground/35"
-              } mt-10 min-h-[44px]`}
+              } min-h-[44px]`}
             >
               <Gift className="size-3.5" strokeWidth={1.2} />
               Consultar lista
             </a>
           </Reveal>
-
         </div>
       </section>
 
