@@ -1,0 +1,43 @@
+import { motion } from "motion/react";
+import type { ReactNode } from "react";
+
+export function Reveal({
+  children,
+  delay = 0,
+  y = 24,
+  className,
+}: {
+  children: ReactNode;
+  delay?: number;
+  y?: number;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      viewport={{ once: true, margin: "-10%" }}
+      transition={{ duration: 1.1, delay, ease: [0.16, 1, 0.3, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function Rule({ className = "" }: { className?: string }) {
+  return (
+    <span
+      aria-hidden
+      className={`block h-px w-16 bg-gradient-to-r from-transparent via-primary/60 to-transparent ${className}`}
+    />
+  );
+}
+
+export function Eyebrow({ children }: { children: ReactNode }) {
+  return (
+    <span className="text-[0.62rem] tracking-editorial uppercase text-primary/80">
+      {children}
+    </span>
+  );
+}
