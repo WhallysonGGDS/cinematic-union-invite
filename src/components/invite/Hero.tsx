@@ -25,8 +25,8 @@ export function Hero() {
           transition={{ duration: 14, ease: "linear" }}
           className="h-[115%] w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#05070A]/85 via-[#05070A]/45 to-[#05070A]" />
-        <div className="absolute inset-0 bg-[#071321]/35 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#05070A]/70 via-[#05070A]/40 to-[#05070A]/95" />
+        <div className="absolute inset-0 bg-[#071321]/25 mix-blend-multiply" />
       </motion.div>
 
       <motion.div
