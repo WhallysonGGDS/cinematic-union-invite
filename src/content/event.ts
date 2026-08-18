@@ -21,7 +21,7 @@ export const siteUrl =
   "https://project--534ed5a5-1d99-41c2-b649-ba70e6dce5d5.lovable.app";
 
 /** Imagem exibida na pré-visualização do link (WhatsApp, Instagram, etc.). */
-export const shareImage = `${siteUrl}${photos.hero}`;
+export const shareImage = `${siteUrl}${photos.flowers}`;
 
 const mapsQuery =
   "Espaço Mix Eventos, R. FN-4 - Jardim Fonte Nova, Goiânia - GO, 74594-037";
@@ -44,22 +44,21 @@ export const event = {
   headline: "Nosso grande dia está chegando!",
   invite:
     "Mas antes, queremos comemorar com você. Venha celebrar essa nova fase com a gente.",
-  giftsText: "Lista de presentes disponível — consulte com os noivos",
+  giftsText: "Escolha um presente para o nosso primeiro lar",
   closing: "Esperamos você!",
   // Data/hora do evento (horário de Brasília, UTC-3)
   targetIso: "2026-10-29T19:30:00-03:00",
-  /** Preencher quando o link da lista estiver disponível. */
-  giftsUrl: "",
+  giftsUrl: "https://ch-de-panela-whallyson-e-emyll.lovable.app/presentes",
   /** Texto do convite. */
   story: [
     "Um novo capítulo está prestes a começar, e queremos você ao nosso lado.",
-    "Preparamos uma celebração especial para reunir quem faz parte da nossa história.",
-    "Será um dia de alegria, carinho, risadas e momentos que ficarão na memória.",
+    "Antes do grande dia, vamos montar juntos a casa que será o nosso lar.",
+    "Cada detalhe deste chá de panela guarda um pedaço dessa nova rotina a dois.",
+    "Preparamos uma noite simples e cheia de afeto para reunir quem faz parte da nossa história.",
     "Sua presença não é apenas um convite aceito — é parte dessa celebração.",
-    "Venha compartilhar conosco a felicidade de construir um novo lar.",
-    "Traga seu sorriso e o coração aberto para viver esse momento.",
+    "Traga seu sorriso, o coração aberto e um carinho para a nossa cozinha.",
     "Porque algumas memórias só fazem sentido quando compartilhadas.",
-    "Esperamos por você para tornar esse dia ainda mais especial! ✨",
+    "Esperamos por você no dia 29 de outubro, para tornar tudo ainda mais especial. ✨",
   ] as string[],
 };
 
