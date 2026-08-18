@@ -268,21 +268,13 @@ function Index() {
               {event.giftsText}
             </p>
             <a
-              href={event.giftsUrl || event.mapsUrl}
+              href={event.giftsUrl}
               target="_blank"
               rel="noreferrer"
-              aria-disabled={!event.giftsUrl}
-              onClick={(e) => {
-                if (!event.giftsUrl) e.preventDefault();
-              }}
-              className={`mt-10 inline-flex items-center gap-3 border border-border px-7 py-4 text-[0.58rem] uppercase tracking-editorial transition-colors duration-500 ${
-                event.giftsUrl
-                  ? "text-foreground/80 hover:border-primary/60 hover:text-foreground"
-                  : "cursor-not-allowed text-foreground/35"
-              } min-h-[44px]`}
+              className="mt-10 inline-flex min-h-[44px] items-center gap-3 border border-primary/40 px-7 py-4 text-[0.58rem] uppercase tracking-editorial text-foreground/85 transition-colors duration-500 hover:bg-primary/10 hover:text-foreground"
             >
               <Gift className="size-3.5" strokeWidth={1.2} />
-              Consultar lista
+              Ver lista de presentes
             </a>
           </Reveal>
         </div>
