@@ -20,8 +20,8 @@ export function Hero() {
           height={2400}
           decoding="async"
           fetchPriority="high"
-          initial={reduce ? undefined : { scale: 1.12 }}
-          animate={reduce ? undefined : { scale: 1 }}
+          initial={{ scale: reduce ? 1 : 1.12 }}
+          animate={{ scale: 1 }}
           transition={{ duration: 14, ease: "linear" }}
           className="h-[115%] w-full object-cover object-center"
         />
@@ -97,7 +97,7 @@ export function Hero() {
         </span>
         <motion.span
           aria-hidden
-          animate={reduce ? undefined : { scaleY: [0.2, 1, 0.2], originY: 0 }}
+          animate={reduce ? { scaleY: 1 } : { scaleY: [0.2, 1, 0.2], originY: 0 }}
           transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
           className="h-10 w-px bg-foreground/35"
         />
